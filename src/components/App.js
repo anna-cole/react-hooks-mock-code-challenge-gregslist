@@ -11,14 +11,15 @@ function App() {
     .then(items => setItems(items))
   }, [])
 
-  function deleteItem(deletedItem) {
-    console.log(deleteItem)
+  function handleDeleteItem(deletedItem) {
+    const updatedItems = items.filter(item => item.id !== deletedItem.id)
+    setItems(updatedItems)
   }
 
   return (
     <div className="app">
       <Header />
-      <ListingsContainer items={items} onDeleteItem={deleteItem}/>
+      <ListingsContainer items={items} onDeleteItem={handleDeleteItem}/>
     </div>
   );
 }

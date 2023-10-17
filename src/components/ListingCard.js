@@ -7,7 +7,7 @@ function ListingCard({ item, onDeleteItem }) {
     setFavorite(favorite => !favorite);
   }
 
-  function onClickDelete() {
+  function handleClickDelete() {
     fetch(`http://localhost:6001/listings/${item.id}`, {
       method: 'DELETE'
     })
@@ -29,7 +29,7 @@ function ListingCard({ item, onDeleteItem }) {
       )}
       <strong>{item.description}</strong>
       <span> · {item.location}</span>
-      <button className="emoji-button delete" onClick={onClickDelete}>🗑</button>
+      <button className="emoji-button delete" onClick={handleClickDelete}>🗑</button>
     </div>
   </li>
   );
