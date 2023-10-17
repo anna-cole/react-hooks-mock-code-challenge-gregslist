@@ -11,10 +11,14 @@ function App() {
     .then(items => setItems(items))
   }, [])
 
+  function deleteItem(deletedItem) {
+    console.log(deleteItem)
+  }
+
   return (
     <div className="app">
       <Header />
-      <ListingsContainer items={items}/>
+      <ListingsContainer items={items} onDeleteItem={deleteItem}/>
     </div>
   );
 }
