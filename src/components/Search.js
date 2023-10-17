@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({ search }) {
+function Search({ search, onChangeSearch }) {
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -13,7 +13,7 @@ function Search({ search }) {
         id="search"
         placeholder="search free stuff"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={onChangeSearch}
       />
       <button type="submit">🔍</button>
     </form>

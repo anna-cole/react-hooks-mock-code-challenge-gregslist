@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header search={search} />
+      <Header search={search} onChangeSearch={e => setSearch(e.target.value)} />
       <ListingsContainer items={items} search={search} onDeleteItem={handleDeleteItem} />
     </div>
   );
