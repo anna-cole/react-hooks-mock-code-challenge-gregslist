@@ -4,6 +4,7 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [items, setItems] = useState([])
+  const [search, setSearch] = useState('') 
 
   useEffect(() => {
     fetch('http://localhost:6001/listings')
@@ -18,8 +19,8 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer items={items} onDeleteItem={handleDeleteItem}/>
+      <Header search={search} />
+      <ListingsContainer items={items} search={search} onDeleteItem={handleDeleteItem} />
     </div>
   );
 }
