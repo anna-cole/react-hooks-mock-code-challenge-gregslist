@@ -5,7 +5,7 @@ import ListingsContainer from "./ListingsContainer";
 function App() {
   const [items, setItems] = useState([])
   const [search, setSearch] = useState('') 
-  
+
   useEffect(() => {
     fetch('http://localhost:6001/listings')
     .then(resp => resp.json())
@@ -20,13 +20,13 @@ function App() {
   const itemsToDisplay = 
   items.filter(item => search === '' || item.description.toLowerCase().includes(search.toLowerCase()))
 
-  function handleSearchChange(search) {
+  function submitChangeText(search) {
     setSearch(search)
-  }
+  } 
 
   return (
     <div className="app">
-      <Header onSearchChange={handleSearchChange}/>
+      <Header onChangeText={submitChangeText} />
       <ListingsContainer items={itemsToDisplay} onDeleteItem={handleDeleteItem} />
     </div>
   );
